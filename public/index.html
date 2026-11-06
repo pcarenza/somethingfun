@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Trivia Party</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎉</text></svg>" />
+</head>
+<body>
+  <div id="bg"></div>
+  <main id="app">
+    <!-- HOME -->
+    <section id="screen-home" class="screen">
+      <h1 class="logo">Trivia<span>Party</span></h1>
+      <p class="tagline">Pick any topic. Race your friends. Climb the board.</p>
+
+      <div class="card profile">
+        <label class="field">
+          <span>Your name</span>
+          <input id="name-input" maxlength="20" placeholder="e.g. Quiz Wizard" autocomplete="nickname" />
+        </label>
+        <div class="field">
+          <span>Pick your avatar</span>
+          <div class="avatar-row">
+            <div id="avatar-preview" class="avatar big">🙂</div>
+            <div id="emoji-grid" class="emoji-grid" role="listbox" aria-label="Avatar emoji"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="home-actions">
+        <div class="card action-card">
+          <h2>Host a game</h2>
+          <p>Create a room, pick your topics, and share the PIN.</p>
+          <button id="host-btn" class="btn primary">Create game</button>
+        </div>
+        <div class="card action-card">
+          <h2>Join a game</h2>
+          <input id="pin-input" class="pin-input" inputmode="numeric" maxlength="6" placeholder="Game PIN" />
+          <button id="join-btn" class="btn secondary">Join</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- LOBBY / SETUP -->
+    <section id="screen-lobby" class="screen">
+      <header class="topbar">
+        <div class="pin-badge">PIN <strong id="lobby-pin">------</strong></div>
+        <button id="leave-btn" class="btn ghost small">Leave</button>
+      </header>
+
+      <div class="lobby-grid">
+        <div class="card" id="host-setup">
+          <h2>Build your question set</h2>
+          <p class="muted">Enter a topic or search word. Questions and answers stay secret — even from you.</p>
+          <form id="category-form" class="category-form">
+            <input id="topic-input" maxlength="60" placeholder='e.g. "Christmas"' required />
+            <select id="count-input" aria-label="Number of questions"></select>
+            <button class="btn primary" type="submit">Add</button>
+          </form>
+          <ul id="category-list" class="category-list"></ul>
+
+          <label class="field slider-field">
+            <span>Time per question: <strong id="time-label">20s</strong></span>
+            <input id="time-input" type="range" min="5" max="60" step="5" value="20" />
+          </label>
+
+          <button id="start-btn" class="btn primary big" disabled>Start game</button>
+          <p id="start-hint" class="muted center"></p>
+        </div>
+
+        <div class="card" id="player-wait">
+          <h2>You're in! 🎉</h2>
+          <p class="muted">Waiting for the host to set up the game…</p>
+          <ul id="player-category-list" class="category-list readonly"></ul>
+        </div>
+
+        <div class="card">
+          <h2>Players <span id="player-count" class="count-pill">0</span></h2>
+          <ul id="player-list" class="player-list"></ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- READY -->
+    <section id="screen-ready" class="screen center-screen">
+      <div class="big-emoji bounce">🚀</div>
+      <h1>Get ready!</h1>
+      <p id="ready-sub" class="tagline"></p>
+      <button id="first-btn" class="btn primary big host-only">Show first question</button>
+      <p class="muted player-only">Waiting for the host to begin…</p>
+    </section>
+
+    <!-- QUESTION / REVEAL -->
+    <section id="screen-question" class="screen">
+      <header class="q-header">
+        <span id="q-progress" class="pill"></span>
+        <span id="q-topic" class="pill topic"></span>
+        <span id="q-answered" class="pill"></span>
+      </header>
+      <div class="timer">
+        <div id="timer-bar" class="timer-bar"></div>
+      </div>
+      <div id="timer-num" class="timer-num"></div>
+      <h2 id="q-text" class="q-text"></h2>
+      <div id="answers" class="answers"></div>
+      <div id="q-status" class="q-status"></div>
+    </section>
+
+    <!-- LEADERBOARD -->
+    <section id="screen-leaderboard" class="screen">
+      <h1 class="lb-title">Leaderboard</h1>
+      <p id="lb-sub" class="tagline"></p>
+      <div id="lb" class="lb"></div>
+      <div id="lb-you" class="lb-you"></div>
+      <button id="next-btn" class="btn primary big host-only">Next question</button>
+      <p class="muted center player-only">Waiting for the host…</p>
+    </section>
+
+    <!-- FINAL -->
+    <section id="screen-final" class="screen center-screen">
+      <p class="tagline">And the winner is…</p>
+      <div id="winner" class="winner"></div>
+      <div id="podium" class="podium"></div>
+      <ol id="final-list" class="final-list"></ol>
+      <button id="menu-btn" class="btn primary big host-only">Back to main menu</button>
+      <p class="muted player-only">The host will start a new round soon.</p>
+    </section>
+  </main>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <canvas id="confetti"></canvas>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
