@@ -1,0 +1,318 @@
+{
+  "topic": "Christmas",
+  "description": "Holiday traditions, carols, and classic Christmas movies",
+  "questions": [
+    {
+      "type": "multiple_choice",
+      "question": "Which country is credited with starting the modern Christmas tree tradition?",
+      "choices": [
+        "Germany",
+        "England",
+        "United States",
+        "Sweden"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "In \"A Christmas Carol\", what is Scrooge's first name?",
+      "choices": [
+        "Ebenezer",
+        "Jacob",
+        "Bob",
+        "Fezziwig"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "What is the name of the Grinch's dog?",
+      "choices": [
+        "Max",
+        "Buddy",
+        "Rex",
+        "Spot"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "In \"The Twelve Days of Christmas\", what is given on the fifth day?",
+      "choices": [
+        "Five golden rings",
+        "Six geese a-laying",
+        "Four calling birds",
+        "Seven swans a-swimming"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Which of Santa's reindeer has a name meaning \"lightning\" in German?",
+      "choices": [
+        "Blitzen",
+        "Donner",
+        "Comet",
+        "Vixen"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "In \"Home Alone\", where is the McCallister family flying for the holidays?",
+      "choices": [
+        "Paris",
+        "London",
+        "Rome",
+        "New York"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "What color are the berries of European mistletoe?",
+      "choices": [
+        "White",
+        "Red",
+        "Green",
+        "Purple"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Who wrote \"A Christmas Carol\"?",
+      "choices": [
+        "Charles Dickens",
+        "Mark Twain",
+        "Jane Austen",
+        "Lewis Carroll"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Poinsettias are native to which country?",
+      "choices": [
+        "Mexico",
+        "Brazil",
+        "Spain",
+        "Peru"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "In the movie \"Elf\", which city does Buddy travel to in search of his father?",
+      "choices": [
+        "New York City",
+        "Chicago",
+        "Boston",
+        "Los Angeles"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Which song begins with the line \"Dashing through the snow\"?",
+      "choices": [
+        "Jingle Bells",
+        "Sleigh Ride",
+        "Let It Snow",
+        "Winter Wonderland"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "What brings Frosty the Snowman to life?",
+      "choices": [
+        "An old silk hat",
+        "A corncob pipe",
+        "A carrot nose",
+        "A woolly scarf"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Saint Nicholas was born in a region that is now part of which country?",
+      "choices": [
+        "Turkey",
+        "Greece",
+        "Italy",
+        "Netherlands"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Who recorded \"White Christmas\", often called the best-selling single of all time?",
+      "choices": [
+        "Bing Crosby",
+        "Frank Sinatra",
+        "Elvis Presley",
+        "Nat King Cole"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "In what year was Mariah Carey's \"All I Want for Christmas Is You\" first released?",
+      "choices": [
+        "1994",
+        "1989",
+        "1999",
+        "2004"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Who composed the music for the ballet \"The Nutcracker\"?",
+      "choices": [
+        "Pyotr Tchaikovsky",
+        "Wolfgang Amadeus Mozart",
+        "Ludwig van Beethoven",
+        "Igor Stravinsky"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Which town does the Grinch try to steal Christmas from?",
+      "choices": [
+        "Whoville",
+        "Whoburg",
+        "Grinchton",
+        "Snowville"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "What do the Dutch call their gift-giving Saint Nicholas figure?",
+      "choices": [
+        "Sinterklaas",
+        "Père Noël",
+        "Babbo Natale",
+        "Joulupukki"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "In \"It's a Wonderful Life\", what happens every time a bell rings?",
+      "choices": [
+        "An angel gets its wings",
+        "A wish comes true",
+        "A star is born",
+        "Santa takes flight"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Which reindeer was NOT named in the 1823 poem \"A Visit from St. Nicholas\"?",
+      "choices": [
+        "Rudolph",
+        "Dasher",
+        "Cupid",
+        "Prancer"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "What is the log-shaped Christmas cake from France called?",
+      "choices": [
+        "Bûche de Noël",
+        "Galette des Rois",
+        "Tarte Tatin",
+        "Crème brûlée"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "true_false",
+      "question": "Christmas celebrations were banned by the English Parliament in the 1640s.",
+      "choices": [
+        "True",
+        "False"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "true_false",
+      "question": "In Australia, Christmas falls during the summer.",
+      "choices": [
+        "True",
+        "False"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "true_false",
+      "question": "Some of the first artificial Christmas trees were made from dyed goose feathers.",
+      "choices": [
+        "True",
+        "False"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "true_false",
+      "question": "The action movie \"Die Hard\" takes place on Christmas Eve.",
+      "choices": [
+        "True",
+        "False"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "true_false",
+      "question": "Rudolph the Red-Nosed Reindeer was created for a department store promotion.",
+      "choices": [
+        "True",
+        "False"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "true_false",
+      "question": "Mistletoe is a parasitic plant that grows on trees.",
+      "choices": [
+        "True",
+        "False"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "true_false",
+      "question": "Bing Crosby first introduced the song \"White Christmas\" in the 1954 film \"White Christmas\".",
+      "choices": [
+        "True",
+        "False"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "type": "true_false",
+      "question": "In \"Home Alone\", the McCallister family lives in New York.",
+      "choices": [
+        "True",
+        "False"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "type": "true_false",
+      "question": "\"The Nutcracker\" ballet premiered in Paris.",
+      "choices": [
+        "True",
+        "False"
+      ],
+      "correctIndex": 1
+    }
+  ]
+}

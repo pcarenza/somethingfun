@@ -3,6 +3,7 @@
 // a small built-in general-knowledge bank so the game is still playable offline.
 import Anthropic from "@anthropic-ai/sdk";
 import { FALLBACK_BANK } from "./fallbackBank.js";
+import { findPack } from "./packs.js";
 
 const MODEL = process.env.TRIVIA_MODEL || "claude-opus-5-5";
 
@@ -27,6 +28,11 @@ const QUESTION_SCHEMA = {
     },
   },
 };
+
+/** True when some Anthropic credential is configured in the environment. */
+export function aiAvailable() {
+  return Boolean(process.env.ANTHROPIC_API_KEY || process.env.ANTHROPIC_AUTH_TOKEN);
+}
 
 let client = null;
 function getClient() {
@@ -136,11 +142,36 @@ function generateFromFallback(count, usedTexts) {
     .filter(Boolean);
 }
 
+function generateFromPack(pack, count, usedTexts) {
+  const pool = shuffle(pack.questions.filter((q) => !usedTexts.has(q.question)));
+  return pool
+    .slice(0, count)
+    .map((q) => normalizeQuestion(q, pack.topic))
+    .filter(Boolean);
+}
+
 /**
  * Build a question set for one category.
- * @returns {Promise<{questions: object[], source: "ai"|"fallback", error?: string}>}
+ * Order of preference: a matching question pack, then Claude, then the general bank.
+ * @returns {Promise<{questions: object[], source: "pack"|"ai"|"fallback", error?: string}>}
  */
 export async function buildCategory(topic, count, usedTexts = new Set()) {
+  const pack = findPack(topic);
+  if (pack) {
+    const questions = generateFromPack(pack, count, usedTexts);
+    return {
+      questions,
+      source: "pack",
+      error: questions.length < count ? `Pack only has ${questions.length} questions` : undefined,
+    };
+  }
+  if (!aiAvailable()) {
+    return {
+      questions: generateFromFallback(count, usedTexts),
+      source: "fallback",
+      error: "No question pack with that name and no API key set",
+    };
+  }
   try {
     const questions = await generateWithClaude(topic, count);
     return { questions, source: "ai" };

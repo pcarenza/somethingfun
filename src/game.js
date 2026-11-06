@@ -2,7 +2,8 @@
 // outside world only through the `io` adapter passed to the constructor:
 //   io.toRoom(event, payload)            broadcast to everyone in the room
 //   io.toPlayer(playerId, event, payload) send to a single player
-import { buildCategory } from "./questionGen.js";
+import { buildCategory, aiAvailable } from "./questionGen.js";
+import { listPacks } from "./packs.js";
 
 export const PHASES = {
   SETUP: "setup", // host configures categories; players wait in lobby
@@ -175,6 +176,10 @@ export class Room {
       totalQuestions: this.questions.length,
       currentIndex: this.currentIndex,
     };
+    if (this.phase === PHASES.SETUP && forPlayerId === this.hostId) {
+      snap.packs = listPacks();
+      snap.aiAvailable = aiAvailable();
+    }
     if (this.phase === PHASES.QUESTION) {
       snap.question = this.currentQuestionPublic();
       const mine = this.answers.get(forPlayerId);

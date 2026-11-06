@@ -19,13 +19,22 @@ Requires Node 18+.
 
 ```bash
 npm install
-export ANTHROPIC_API_KEY=sk-ant-...   # needed for topic-based questions
+export ANTHROPIC_API_KEY=sk-ant-...   # optional: lets the host type any topic
 npm start                              # http://localhost:3000
 ```
 
 Open the URL on several devices on the same network (use the host machine's LAN IP, e.g. `http://192.168.1.20:3000`).
 
-Without Anthropic credentials, the game still works but builds each category from a small built-in general-knowledge bank. The host's category list shows a ⚠ when this happens.
+## Question packs (no API key needed)
+
+Packs are JSON files in `questions/`. They appear as buttons on the host's setup screen, and each game draws a random sample from the pack. To make a new one, ask Claude in a Claude Code session on this repo, for example *"make a 30-question pack about 80s music"*. Claude writes the file, checks it, commits it and pushes it. If your host redeploys when you push, the new pack shows up on its own. `CLAUDE.md` describes the file format.
+
+Where questions come from, in order:
+1. A pack whose topic matches what the host picked or typed.
+2. Claude, generating live (only if `ANTHROPIC_API_KEY` is set).
+3. A small built-in general-knowledge bank. The host sees a ⚠ when this happens.
+
+`npm run validate-packs` checks every pack for formatting problems.
 
 | Env var | Default | Purpose |
 |---|---|---|
@@ -47,7 +56,10 @@ npm test
 src/server.js       Express + Socket.IO: rooms, PINs, events, reconnects
 src/game.js         Game state machine: setup → ready → question → reveal → leaderboard → final
 src/questionGen.js  Claude question generation, validation, answer shuffling, offline fallback
+src/packs.js        Loads and validates question packs
 src/fallbackBank.js Offline general-knowledge questions
+questions/          Question packs (JSON)
+scripts/            validate-packs.js
 public/             Single-page client (vanilla JS/CSS, no build step)
 test/               node:test unit tests for the game logic
 ```

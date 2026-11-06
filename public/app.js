@@ -133,6 +133,17 @@
       const res = await emit("addCategory", { topic, count: Number(sel.value) });
       if (res.ok) $("topic-input").value = "";
     });
+    $("pack-list").addEventListener("click", (e) => {
+      const b = e.target.closest(".pack-chip");
+      if (!b) return;
+      $("topic-input").value = b.dataset.topic;
+      const size = Number(b.dataset.size);
+      // Default to 10 (or the whole pack if smaller), snapped to an available option.
+      const opts = [...sel.options].map((o) => Number(o.value));
+      const want = Math.min(10, size);
+      sel.value = String(opts.filter((n) => n <= want).pop() ?? opts[0]);
+      $("topic-input").focus();
+    });
     $("category-list").addEventListener("click", (e) => {
       const b = e.target.closest(".remove");
       if (b) emit("removeCategory", { id: Number(b.dataset.id) });
@@ -158,8 +169,9 @@
   function categoryStatus(c) {
     if (c.status === "building") return `<span class="cat-status"><span class="spinner"></span>Building ${c.count} questions…</span>`;
     if (c.status === "error") return `<span class="cat-status error" title="${esc(c.error)}">Couldn't build — try another topic</span>`;
+    if (c.source === "pack") return `<span class="cat-status ready">✓ ${c.built} hidden questions from pack</span>`;
     if (c.source === "fallback")
-      return `<span class="cat-status warn" title="${esc(c.error)}">⚠ AI unavailable — ${c.built} general questions</span>`;
+      return `<span class="cat-status warn" title="${esc(c.error)}">⚠ No pack by that name — ${c.built} general questions</span>`;
     return `<span class="cat-status ready">✓ ${c.built} hidden questions ready</span>`;
   }
 
@@ -181,6 +193,19 @@
     setHTML($("player-category-list"), state.categories
       .map((c) => `<li><span class="cat-name">${esc(c.topic)}</span><span class="cat-status">${c.count} Qs</span></li>`)
       .join(""));
+
+    if (host) {
+      const packs = state.packs || [];
+      setHTML($("pack-list"), packs
+        .map((p) => `<button type="button" class="pack-chip" data-topic="${esc(p.topic)}" data-size="${p.size}" title="${esc(p.description)}">${esc(p.topic)}<small>${p.size}</small></button>`)
+        .join(""));
+      setHTML($("pack-options"), packs.map((p) => `<option value="${esc(p.topic)}"></option>`).join(""));
+      $("setup-hint").textContent = state.aiAvailable
+        ? "Tap a question pack or type any topic for AI-written questions. Questions and answers stay secret — even from you."
+        : packs.length
+          ? "Tap a question pack to add it. Questions and answers stay secret — even from you."
+          : "No question packs found yet. Add some to the questions/ folder.";
+    }
 
     const time = $("time-input");
     if (document.activeElement !== time) {

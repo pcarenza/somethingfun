@@ -53,9 +53,11 @@
       <div class="lobby-grid">
         <div class="card" id="host-setup">
           <h2>Build your question set</h2>
-          <p class="muted">Enter a topic or search word. Questions and answers stay secret — even from you.</p>
+          <p class="muted" id="setup-hint">Enter a topic or search word. Questions and answers stay secret — even from you.</p>
+          <div id="pack-list" class="pack-list"></div>
           <form id="category-form" class="category-form">
-            <input id="topic-input" maxlength="60" placeholder='e.g. "Christmas"' required />
+            <input id="topic-input" maxlength="60" placeholder='e.g. "Christmas"' list="pack-options" required />
+            <datalist id="pack-options"></datalist>
             <select id="count-input" aria-label="Number of questions"></select>
             <button class="btn primary" type="submit">Add</button>
           </form>

@@ -115,6 +115,15 @@ select option { color: #111; }
 .pin-badge strong { font-size: 32px; letter-spacing: 6px; margin-left: 8px; color: var(--gold); }
 .lobby-grid { display: grid; grid-template-columns: 3fr 2fr; gap: 20px; align-items: start; }
 .category-form { display: grid; grid-template-columns: 1fr 110px auto; gap: 10px; margin: 14px 0; }
+.pack-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+.pack-list:empty { display: none; }
+.pack-chip {
+  font: inherit; font-size: 14px; font-weight: 600; color: var(--text); cursor: pointer;
+  background: rgba(61, 217, 255, 0.12); border: 1px solid rgba(61, 217, 255, 0.4);
+  border-radius: 999px; padding: 6px 12px; transition: transform 0.1s, background 0.1s;
+}
+.pack-chip:hover { transform: translateY(-1px); background: rgba(61, 217, 255, 0.25); }
+.pack-chip small { color: var(--muted); font-weight: 500; margin-left: 4px; }
 .category-list { list-style: none; padding: 0; margin: 0 0 18px; display: grid; gap: 10px; }
 .category-list li {
   display: flex; align-items: center; gap: 12px; padding: 12px 14px;
