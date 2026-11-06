@@ -29,6 +29,14 @@ Open the URL on several devices on the same network (use the host machine's LAN 
 
 Packs are JSON files in `questions/`. They appear as buttons on the host's setup screen, and each game draws a random sample from the pack. To make a new one, ask Claude in a Claude Code session on this repo, for example *"make a 30-question pack about 80s music"*. Claude writes the file, checks it, commits it and pushes it. If your host redeploys when you push, the new pack shows up on its own. `CLAUDE.md` describes the file format.
 
+### Creating packs from the lobby
+
+The host's setup screen has a **🛠 Create a new question pack** section. Choose **Gemini** (a free key is available from [Google AI Studio](https://aistudio.google.com/apikey)) or **Claude**, paste your key, enter a topic and a question count (5–50), and click **Create pack**. The pack is saved in `questions/` on the server and shows up in the pack list straight away. Using an existing pack's name adds new questions to that pack instead of replacing it.
+
+- The server uses your key for that one request. It never stores or logs the key. You can tick "Remember this key on this device" to have your browser keep it.
+- **Hosted servers such as Render can delete new files when they restart or redeploy.** Click **Download pack file** after creating a pack, then add the file to the `questions/` folder in the repo (on GitHub: *Add file → Upload files*) so it's kept for good.
+- Optional env vars: `GEMINI_MODEL` (default `gemini-2.5-flash`) and `TRIVIA_MODEL` (default `claude-opus-5-5`). You can also type a different model on the form.
+
 Where questions come from, in order:
 1. A pack whose topic matches what the host picked or typed.
 2. Claude, generating live (only if `ANTHROPIC_API_KEY` is set).

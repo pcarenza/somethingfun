@@ -166,6 +166,85 @@
     $("menu-btn").onclick = () => emit("backToMenu");
   }
 
+  // ---------- pack maker ----------
+  const PROVIDER_INFO = {
+    gemini: {
+      model: "gemini-2.5-flash",
+      help: 'Get a free key at <a href="https://aistudio.google.com/apikey" target="_blank" rel="noopener">Google AI Studio</a>. Free-tier keys have daily limits.',
+    },
+    claude: {
+      model: "claude-opus-5-5",
+      help: 'Get a key at <a href="https://console.anthropic.com/" target="_blank" rel="noopener">console.anthropic.com</a> (pay as you go).',
+    },
+  };
+
+  function initPackMaker() {
+    const form = $("pack-form");
+    const keyInput = $("pack-key");
+    const remember = $("pack-remember");
+    $("pack-count").innerHTML = [10, 15, 20, 25, 30, 40, 50]
+      .map((n) => `<option value="${n}" ${n === 30 ? "selected" : ""}>${n}</option>`)
+      .join("");
+
+    const provider = () => form.querySelector('input[name="provider"]:checked').value;
+    const syncProvider = () => {
+      const p = provider();
+      const saved = store.get(`trivia.key.${p}`, "");
+      keyInput.value = saved;
+      remember.checked = Boolean(saved);
+      $("pack-model").placeholder = `Default: ${PROVIDER_INFO[p].model}`;
+      $("key-help").innerHTML = PROVIDER_INFO[p].help;
+      store.set("trivia.provider", p);
+    };
+    const lastProvider = store.get("trivia.provider", "gemini");
+    const radio = form.querySelector(`input[name="provider"][value="${lastProvider}"]`);
+    if (radio) radio.checked = true;
+    form.querySelectorAll('input[name="provider"]').forEach((r) => r.addEventListener("change", syncProvider));
+    remember.addEventListener("change", () => {
+      if (!remember.checked) store.del(`trivia.key.${provider()}`);
+    });
+    syncProvider();
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const p = provider();
+      const apiKey = keyInput.value.trim();
+      const topic = $("pack-topic").value.trim();
+      if (!apiKey || !topic) return;
+      if (remember.checked) store.set(`trivia.key.${p}`, apiKey);
+      else store.del(`trivia.key.${p}`);
+
+      const btn = $("pack-submit");
+      const out = $("pack-result");
+      btn.disabled = true;
+      out.className = "pack-result";
+      out.innerHTML = `<span class="spinner"></span>Writing questions about "${esc(topic)}"… this can take a minute.`;
+      const res = await new Promise((resolve) =>
+        socket.emit("createPack", { provider: p, apiKey, model: $("pack-model").value.trim(), topic, count: Number($("pack-count").value) }, resolve),
+      );
+      btn.disabled = false;
+      if (!res?.ok) {
+        out.className = "pack-result err";
+        out.textContent = `✖ ${res?.error || "Something went wrong"}`;
+        return;
+      }
+      $("pack-topic").value = "";
+      out.className = "pack-result ok";
+      const verb = res.added === res.total ? `Created pack "${esc(res.topic)}" with ${res.added} questions.` : `Added ${res.added} new questions to "${esc(res.topic)}" (${res.total} total).`;
+      out.innerHTML = `✓ ${verb} It's now in your pack list.<br>
+        <span class="muted small-text">Online hosts can lose new packs when the server restarts. Download a copy to keep it (opening the file shows the answers).</span><br>
+        <button type="button" class="btn ghost small" id="pack-download">⬇ Download pack file</button>`;
+      $("pack-download").onclick = () => {
+        const blob = new Blob([JSON.stringify(res.pack, null, 2) + "\n"], { type: "application/json" });
+        const a = document.createElement("a");
+        a.href = URL.createObjectURL(blob);
+        a.download = res.file;
+        a.click();
+        setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+      };
+    });
+  }
+
   function categoryStatus(c) {
     if (c.status === "building") return `<span class="cat-status"><span class="spinner"></span>Building ${c.count} questions…</span>`;
     if (c.status === "error") return `<span class="cat-status error" title="${esc(c.error)}">Couldn't build — try another topic</span>`;
@@ -204,7 +283,7 @@
         ? "Tap a question pack or type any topic for AI-written questions. Questions and answers stay secret — even from you."
         : packs.length
           ? "Tap a question pack to add it. Questions and answers stay secret — even from you."
-          : "No question packs found yet. Add some to the questions/ folder.";
+          : "No question packs yet. Create one with your own API key below.";
     }
 
     const time = $("time-input");
@@ -563,5 +642,6 @@
 
   initHome();
   initLobby();
+  initPackMaker();
   render();
 })();

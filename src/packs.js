@@ -86,3 +86,62 @@ export function findPack(topic) {
 export function listPacks() {
   return getPacks().map((p) => ({ topic: p.topic, description: p.description, size: p.questions.length }));
 }
+
+export const PACK_LIMITS = { maxPacks: 200, maxQuestionsPerPack: 200 };
+
+export function slugify(topic) {
+  const slug = String(topic)
+    .toLowerCase()
+    .normalize("NFKD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "")
+    .slice(0, 50);
+  return slug || "pack";
+}
+
+/** Store a question as written in pack files: correct choice kept at its index, no topic field. */
+const toPackFormat = ({ type, question, choices, correctIndex }) => ({ type, question, choices, correctIndex });
+
+/**
+ * Save questions as a pack. If a pack with the same topic exists, new questions are
+ * appended to it (duplicates skipped). Returns { topic, file, added, total, pack }.
+ */
+export function savePack(topicRaw, questions, description = "", dir = PACKS_DIR) {
+  const topic = String(topicRaw).trim().slice(0, 60);
+  if (!topic) throw new Error("Pack needs a topic");
+  fs.mkdirSync(dir, { recursive: true });
+
+  const existing = loadPacks(dir).find((p) => p.topic.toLowerCase() === topic.toLowerCase());
+  let file;
+  let pack;
+  if (existing) {
+    file = existing.file;
+    pack = JSON.parse(fs.readFileSync(path.join(dir, file), "utf8"));
+  } else {
+    if (loadPacks(dir).length >= PACK_LIMITS.maxPacks) throw new Error("Too many packs on this server");
+    const base = slugify(topic);
+    file = `${base}.json`;
+    for (let n = 2; fs.existsSync(path.join(dir, file)); n++) file = `${base}-${n}.json`;
+    pack = { topic, description: description || `Questions about ${topic}`, questions: [] };
+  }
+
+  const seen = new Set(pack.questions.map((q) => q.question.trim().toLowerCase()));
+  let added = 0;
+  for (const q of questions) {
+    if (pack.questions.length >= PACK_LIMITS.maxQuestionsPerPack) break;
+    const key = q.question.trim().toLowerCase();
+    if (seen.has(key)) continue;
+    seen.add(key);
+    pack.questions.push(toPackFormat(q));
+    added++;
+  }
+  const problems = validatePack(pack);
+  if (problems.length) throw new Error(`Generated pack failed validation: ${problems[0]}`);
+
+  const tmp = path.join(dir, `.${file}.tmp`);
+  fs.writeFileSync(tmp, JSON.stringify(pack, null, 2) + "\n");
+  fs.renameSync(tmp, path.join(dir, file));
+  cache.at = 0; // make the new pack show up immediately
+  return { topic: pack.topic, file, added, total: pack.questions.length, pack };
+}

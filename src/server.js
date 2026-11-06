@@ -4,6 +4,8 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { Server } from "socket.io";
 import { Room } from "./game.js";
+import { generateQuestions, PROVIDERS } from "./questionGen.js";
+import { savePack } from "./packs.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const PORT = Number(process.env.PORT) || 3000;
@@ -142,6 +144,40 @@ io.on("connection", (socket) => {
   socket.on("startGame", handle(() => room.startGame(), { hostOnly: true }));
   socket.on("nextQuestion", handle(() => room.nextQuestion(), { hostOnly: true }));
   socket.on("backToMenu", handle(() => room.backToMenu(), { hostOnly: true }));
+
+  // Host-only: generate a new question pack (or add to an existing one) with the host's own key.
+  // The key is used for this one request and is never stored or logged.
+  socket.on("createPack", async (payload = {}, ack = () => {}) => {
+    if (typeof ack !== "function") ack = () => {};
+    try {
+      if (!room || !room.isHost(playerId)) throw new Error("Only the host can do that");
+      const provider = payload.provider === "gemini" ? "gemini" : payload.provider === "claude" ? "claude" : null;
+      if (!provider) throw new Error("Choose Claude or Gemini");
+      const apiKey = typeof payload.apiKey === "string" ? payload.apiKey.trim() : "";
+      if (!apiKey || apiKey.length > 300) throw new Error(`Enter your ${PROVIDERS[provider].label} API key`);
+      const model = typeof payload.model === "string" && /^[A-Za-z0-9._:\-]{1,80}$/.test(payload.model.trim()) ? payload.model.trim() : undefined;
+      const topic = String(payload.topic ?? "").replace(/[\u0000-\u001f]/g, "").trim().slice(0, 60);
+      if (!topic) throw new Error("Enter a topic for the pack");
+      const count = Math.round(Number(payload.count));
+      if (!Number.isInteger(count) || count < 5 || count > 50) throw new Error("Choose between 5 and 50 questions");
+      if (room.creatingPack) throw new Error("A pack is already being created");
+
+      room.creatingPack = true;
+      room.touch();
+      let questions;
+      try {
+        questions = await generateQuestions(provider, topic, count, { apiKey, model });
+      } finally {
+        room.creatingPack = false;
+      }
+      const result = savePack(topic, questions);
+      console.log(`[packs] ${provider} created ${result.added} questions for "${result.topic}" (${result.file})`);
+      room.broadcastState();
+      ack({ ok: true, topic: result.topic, file: result.file, added: result.added, total: result.total, pack: result.pack });
+    } catch (err) {
+      ack({ ok: false, error: err.message });
+    }
+  });
 
   socket.on("answer", (payload = {}, ack = () => {}) => {
     if (typeof ack !== "function") ack = () => {};

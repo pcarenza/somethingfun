@@ -95,22 +95,42 @@ export function normalizeQuestion(raw, topic) {
   return null;
 }
 
-async function generateWithClaude(topic, count) {
-  const c = getClient();
-  if (!c) throw new Error("No Anthropic credentials configured");
+export const PROVIDERS = {
+  claude: { label: "Claude", defaultModel: MODEL },
+  gemini: { label: "Gemini", defaultModel: process.env.GEMINI_MODEL || "gemini-2.5-flash" },
+};
 
-  const prompt = `Write ${count} fun, factually accurate trivia questions about the topic: "${topic}".
+function buildPrompt(topic, count) {
+  return `Write ${count} fun, factually accurate trivia questions about the topic: "${topic}".
 
 Rules:
 - Each question is either "multiple_choice" (exactly 4 distinct choices, exactly 1 correct) or "true_false" (choices exactly ["True", "False"]).
 - Pick the format that best suits each individual piece of trivia; aim for roughly 70% multiple choice and 30% true/false, mixed in a random order.
 - Vary difficulty from easy to challenging, and cover different facets of the topic. No duplicate facts.
 - Wrong choices must be plausible but unambiguously wrong. Only include facts you are confident are true.
+- Avoid facts that change over time (records, "current" office holders, latest releases).
 - Keep each question under 160 characters and each choice under 60 characters. Do not reveal the answer in the question.
 - correctIndex is the 0-based index of the correct choice.`;
+}
+
+function parseQuestions(text, topic, count) {
+  let parsed;
+  try {
+    parsed = JSON.parse(text);
+  } catch {
+    throw new Error("The model returned something that wasn't valid JSON");
+  }
+  const questions = (parsed.questions || []).map((q) => normalizeQuestion(q, topic)).filter(Boolean);
+  if (questions.length === 0) throw new Error("No valid questions were produced");
+  return questions.slice(0, count);
+}
+
+async function generateWithClaude(topic, count, { apiKey, model } = {}) {
+  const c = apiKey ? new Anthropic({ apiKey }) : getClient();
+  if (!c) throw new Error("No Anthropic credentials configured");
 
   const stream = c.beta.messages.stream({
-    model: MODEL,
+    model: model || PROVIDERS.claude.defaultModel,
     max_tokens: 32000,
     betas: ["server-side-fallback-2026-07-01"],
     fallbacks: "default",
@@ -119,19 +139,78 @@ Rules:
       effort: "medium",
       format: { type: "json_schema", schema: QUESTION_SCHEMA },
     },
-    messages: [{ role: "user", content: prompt }],
+    messages: [{ role: "user", content: buildPrompt(topic, count) }],
   });
-  const msg = await stream.finalMessage();
+  let msg;
+  try {
+    msg = await stream.finalMessage();
+  } catch (err) {
+    if (err instanceof Anthropic.AuthenticationError) throw new Error("Claude rejected the API key");
+    if (err instanceof Anthropic.RateLimitError) throw new Error("Claude rate limit hit; try again in a minute");
+    if (err instanceof Anthropic.APIError) throw new Error(`Claude API error: ${err.message}`);
+    throw err;
+  }
 
   if (msg.stop_reason === "refusal") throw new Error("The model declined this topic");
   const textBlocks = msg.content.filter((b) => b.type === "text");
   const text = textBlocks.length ? textBlocks[textBlocks.length - 1].text : "";
-  const parsed = JSON.parse(text);
-  const questions = (parsed.questions || [])
-    .map((q) => normalizeQuestion(q, topic))
-    .filter(Boolean);
-  if (questions.length === 0) throw new Error("No valid questions were produced");
-  return questions.slice(0, count);
+  return parseQuestions(text, topic, count);
+}
+
+// Gemini's response schema uses the OpenAPI subset (no additionalProperties).
+const GEMINI_SCHEMA = {
+  type: "OBJECT",
+  required: ["questions"],
+  properties: {
+    questions: {
+      type: "ARRAY",
+      items: {
+        type: "OBJECT",
+        required: ["type", "question", "choices", "correctIndex"],
+        properties: {
+          type: { type: "STRING", enum: ["multiple_choice", "true_false"] },
+          question: { type: "STRING" },
+          choices: { type: "ARRAY", items: { type: "STRING" } },
+          correctIndex: { type: "INTEGER" },
+        },
+      },
+    },
+  },
+};
+
+async function generateWithGemini(topic, count, { apiKey, model } = {}) {
+  const key = apiKey || process.env.GEMINI_API_KEY;
+  if (!key) throw new Error("No Gemini API key provided");
+  const m = encodeURIComponent(model || PROVIDERS.gemini.defaultModel);
+  const base = process.env.GEMINI_BASE_URL || "https://generativelanguage.googleapis.com";
+  const res = await fetch(`${base}/v1beta/models/${m}:generateContent`, {
+    method: "POST",
+    // Key goes in a header, not the URL, so it never shows up in logs.
+    headers: { "content-type": "application/json", "x-goog-api-key": key },
+    body: JSON.stringify({
+      contents: [{ role: "user", parts: [{ text: buildPrompt(topic, count) }] }],
+      generationConfig: { responseMimeType: "application/json", responseSchema: GEMINI_SCHEMA },
+    }),
+    signal: AbortSignal.timeout(180000),
+  });
+  const data = await res.json().catch(() => ({}));
+  if (!res.ok) {
+    const msg = data?.error?.message || `HTTP ${res.status}`;
+    if (res.status === 400 && /api key/i.test(msg)) throw new Error("Gemini rejected the API key");
+    if (res.status === 429) throw new Error("Gemini rate limit or free-tier quota hit; try again later");
+    throw new Error(`Gemini API error: ${msg}`);
+  }
+  if (data.promptFeedback?.blockReason) throw new Error(`Gemini blocked this topic (${data.promptFeedback.blockReason})`);
+  const text = (data.candidates?.[0]?.content?.parts || []).map((p) => p.text || "").join("");
+  if (!text) throw new Error("Gemini returned an empty response");
+  return parseQuestions(text, topic, count);
+}
+
+/** Generate questions with the chosen provider. Keys are used for this call only and never stored. */
+export async function generateQuestions(provider, topic, count, opts = {}) {
+  if (provider === "gemini") return generateWithGemini(topic, count, opts);
+  if (provider === "claude") return generateWithClaude(topic, count, opts);
+  throw new Error("Unknown provider");
 }
 
 function generateFromFallback(count, usedTexts) {
@@ -173,7 +252,7 @@ export async function buildCategory(topic, count, usedTexts = new Set()) {
     };
   }
   try {
-    const questions = await generateWithClaude(topic, count);
+    const questions = await generateWithClaude(topic, count);  // live generation uses the server's env key
     return { questions, source: "ai" };
   } catch (err) {
     console.warn(`[questionGen] AI generation failed for "${topic}": ${err.message}`);

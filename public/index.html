@@ -70,6 +70,39 @@
 
           <button id="start-btn" class="btn primary big" disabled>Start game</button>
           <p id="start-hint" class="muted center"></p>
+
+          <details id="pack-maker" class="pack-maker">
+            <summary>🛠 Create a new question pack</summary>
+            <p class="muted small-text">Use your own Claude or Gemini API key to write a pack. The questions are saved on the server and won't be shown to you. Using an existing pack's name adds more questions to it.</p>
+            <form id="pack-form">
+              <div class="provider-toggle" role="radiogroup" aria-label="AI provider">
+                <label><input type="radio" name="provider" value="gemini" checked /> <span>Gemini <small>(free tier available)</small></span></label>
+                <label><input type="radio" name="provider" value="claude" /> <span>Claude</span></label>
+              </div>
+              <label class="field">
+                <span>API key</span>
+                <input id="pack-key" type="password" autocomplete="off" spellcheck="false" placeholder="Paste your key" required />
+              </label>
+              <label class="remember"><input id="pack-remember" type="checkbox" /> Remember this key on this device</label>
+              <p class="muted small-text" id="key-help"></p>
+              <div class="pack-row">
+                <label class="field">
+                  <span>Topic</span>
+                  <input id="pack-topic" maxlength="60" placeholder='e.g. "80s Music"' required />
+                </label>
+                <label class="field">
+                  <span>Questions</span>
+                  <select id="pack-count"></select>
+                </label>
+              </div>
+              <label class="field">
+                <span>Model <small class="muted">(optional)</small></span>
+                <input id="pack-model" maxlength="80" spellcheck="false" />
+              </label>
+              <button id="pack-submit" class="btn secondary" type="submit">Create pack</button>
+              <div id="pack-result" class="pack-result"></div>
+            </form>
+          </details>
         </div>
 
         <div class="card" id="player-wait">

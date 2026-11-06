@@ -24,6 +24,8 @@ The owner writes question packs by asking Claude in chat (for example, "make a 3
 2. Run `npm run validate-packs` and fix any problems it reports.
 3. Commit and push. **Don't print the questions or answers in chat**: the host plays too and wants to be surprised.
 
+Hosts can also create packs from the lobby with their own Claude or Gemini key (`createPack` socket event → `generateQuestions` in `src/questionGen.js` → `savePack` in `src/packs.js`). Never store or log those keys.
+
 ## Dev
 
 - `npm start` starts the server (port 3000). `npm test` runs the unit tests and validates the packs.
