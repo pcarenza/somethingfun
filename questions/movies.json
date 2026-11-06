@@ -1,0 +1,318 @@
+{
+  "topic": "Movies",
+  "description": "Classic and modern films, quotes, and characters",
+  "questions": [
+    {
+      "type": "multiple_choice",
+      "question": "Which film won the very first Academy Award for Best Picture?",
+      "choices": [
+        "Wings",
+        "Casablanca",
+        "Gone with the Wind",
+        "The Jazz Singer"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Who directed the 1975 film \"Jaws\"?",
+      "choices": [
+        "Steven Spielberg",
+        "George Lucas",
+        "Martin Scorsese",
+        "Ridley Scott"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "In the 1939 film \"The Wizard of Oz\", what color are Dorothy's slippers?",
+      "choices": [
+        "Red",
+        "Blue",
+        "Green",
+        "Gold"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Which movie series features the line \"May the Force be with you\"?",
+      "choices": [
+        "Star Wars",
+        "Star Trek",
+        "The Matrix",
+        "Dune"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "In \"Toy Story\", what is the cowboy doll's name?",
+      "choices": [
+        "Woody",
+        "Buzz",
+        "Jessie",
+        "Rex"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "What is the name of the lion cub in \"The Lion King\"?",
+      "choices": [
+        "Simba",
+        "Mufasa",
+        "Scar",
+        "Nala"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Which actor played Jack Dawson in \"Titanic\" (1997)?",
+      "choices": [
+        "Leonardo DiCaprio",
+        "Brad Pitt",
+        "Matt Damon",
+        "Johnny Depp"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "In \"Finding Nemo\", what kind of fish is Nemo?",
+      "choices": [
+        "Clownfish",
+        "Goldfish",
+        "Blue tang",
+        "Angelfish"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "In \"The Lord of the Rings\" films, which hobbit sets out to destroy the One Ring?",
+      "choices": [
+        "Frodo",
+        "Pippin",
+        "Merry",
+        "Legolas"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "\"Here's looking at you, kid\" is a famous line from which film?",
+      "choices": [
+        "Casablanca",
+        "Citizen Kane",
+        "Gone with the Wind",
+        "Some Like It Hot"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Which movie features a DeLorean car that travels through time?",
+      "choices": [
+        "Back to the Future",
+        "Ghostbusters",
+        "The Terminator",
+        "Bill & Ted's Excellent Adventure"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Who played the Joker in \"The Dark Knight\" (2008)?",
+      "choices": [
+        "Heath Ledger",
+        "Jack Nicholson",
+        "Joaquin Phoenix",
+        "Jared Leto"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "What is the name of the wizarding school in the Harry Potter films?",
+      "choices": [
+        "Hogwarts",
+        "Durmstrang",
+        "Beauxbatons",
+        "Ilvermorny"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "In \"Jurassic Park\", the park's island is off the coast of which country?",
+      "choices": [
+        "Costa Rica",
+        "Mexico",
+        "Brazil",
+        "Ecuador"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Which Pixar film is about a rat who dreams of becoming a chef?",
+      "choices": [
+        "Ratatouille",
+        "Up",
+        "Coco",
+        "Luca"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Who directed the 1960 thriller \"Psycho\"?",
+      "choices": [
+        "Alfred Hitchcock",
+        "Stanley Kubrick",
+        "Orson Welles",
+        "Billy Wilder"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "In \"The Matrix\", which pill does Neo take?",
+      "choices": [
+        "Red",
+        "Blue",
+        "Green",
+        "Yellow"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Which animated Disney film features the song \"Let It Go\"?",
+      "choices": [
+        "Frozen",
+        "Tangled",
+        "Moana",
+        "Brave"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "In \"E.T. the Extra-Terrestrial\", what does E.T. famously want to do?",
+      "choices": [
+        "Phone home",
+        "Find treasure",
+        "Go to school",
+        "Ride a horse"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Which actor plays Tony Stark / Iron Man in the Marvel Cinematic Universe?",
+      "choices": [
+        "Robert Downey Jr.",
+        "Chris Evans",
+        "Chris Hemsworth",
+        "Mark Ruffalo"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "In \"Forrest Gump\", life is like a box of what?",
+      "choices": [
+        "Chocolates",
+        "Crayons",
+        "Surprises",
+        "Cookies"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "true_false",
+      "question": "\"The Godfather\" (1972) was directed by Francis Ford Coppola.",
+      "choices": [
+        "True",
+        "False"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "true_false",
+      "question": "Walt Disney's first full-length animated feature was \"Snow White and the Seven Dwarfs.\"",
+      "choices": [
+        "True",
+        "False"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "true_false",
+      "question": "The movie \"Rocky\" is set in Philadelphia.",
+      "choices": [
+        "True",
+        "False"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "true_false",
+      "question": "\"Gone with the Wind\" (1939) was filmed in black and white.",
+      "choices": [
+        "True",
+        "False"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "type": "true_false",
+      "question": "The Oscar statuette's official name is the Academy Award of Merit.",
+      "choices": [
+        "True",
+        "False"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "true_false",
+      "question": "\"Shrek\" was made by Pixar.",
+      "choices": [
+        "True",
+        "False"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "type": "true_false",
+      "question": "James Bond's code number is 007.",
+      "choices": [
+        "True",
+        "False"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "true_false",
+      "question": "Tom Hanks voices Buzz Lightyear in the original \"Toy Story.\"",
+      "choices": [
+        "True",
+        "False"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "type": "true_false",
+      "question": "\"The Silence of the Lambs\" won the Academy Award for Best Picture.",
+      "choices": [
+        "True",
+        "False"
+      ],
+      "correctIndex": 0
+    }
+  ]
+}

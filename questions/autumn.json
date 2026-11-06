@@ -1,0 +1,318 @@
+{
+  "topic": "Autumn",
+  "description": "Fall leaves, harvest, and seasonal traditions",
+  "questions": [
+    {
+      "type": "multiple_choice",
+      "question": "In the Northern Hemisphere, astronomical autumn begins with which event?",
+      "choices": [
+        "Autumnal equinox",
+        "Summer solstice",
+        "Winter solstice",
+        "Vernal equinox"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Around what date is the autumnal equinox in the Northern Hemisphere?",
+      "choices": [
+        "September 22 or 23",
+        "October 31",
+        "August 1",
+        "November 21"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Which green pigment breaks down in leaves during autumn?",
+      "choices": [
+        "Chlorophyll",
+        "Carotene",
+        "Melanin",
+        "Hemoglobin"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Which pigments give autumn leaves their yellow and orange colors?",
+      "choices": [
+        "Carotenoids",
+        "Chlorophylls",
+        "Melanins",
+        "Hemoglobins"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "What do we call trees that shed their leaves every autumn?",
+      "choices": [
+        "Deciduous",
+        "Evergreen",
+        "Coniferous",
+        "Perennial"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Which tree's leaf appears on the flag of Canada?",
+      "choices": [
+        "Maple",
+        "Oak",
+        "Birch",
+        "Elm"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Opal is a birthstone for which autumn month?",
+      "choices": [
+        "October",
+        "September",
+        "November",
+        "August"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "What do squirrels famously bury to eat during winter?",
+      "choices": [
+        "Nuts",
+        "Leaves",
+        "Pebbles",
+        "Pinecones only"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Which butterfly is famous for migrating to Mexico each autumn?",
+      "choices": [
+        "Monarch",
+        "Swallowtail",
+        "Cabbage white",
+        "Blue morpho"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "The \"Harvest Moon\" is the full moon closest to which event?",
+      "choices": [
+        "Autumnal equinox",
+        "Halloween",
+        "Thanksgiving",
+        "Winter solstice"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "On what date is Halloween celebrated?",
+      "choices": [
+        "October 31",
+        "November 1",
+        "October 13",
+        "September 30"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Botanically speaking, a pumpkin is a type of what?",
+      "choices": [
+        "Fruit",
+        "Root",
+        "Leaf",
+        "Stem"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Which ancient Celtic festival is considered a forerunner of Halloween?",
+      "choices": [
+        "Samhain",
+        "Beltane",
+        "Imbolc",
+        "Lughnasadh"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Which of these spices is NOT usually part of pumpkin pie spice?",
+      "choices": [
+        "Cumin",
+        "Cinnamon",
+        "Nutmeg",
+        "Ginger"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "What is a spell of unusually warm weather in autumn often called?",
+      "choices": [
+        "Indian summer",
+        "Dog days",
+        "Cold snap",
+        "Polar vortex"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "In most of the US, daylight saving time ends in which month?",
+      "choices": [
+        "November",
+        "October",
+        "September",
+        "December"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Which fruit is pressed to make traditional fall cider?",
+      "choices": [
+        "Apples",
+        "Plums",
+        "Cherries",
+        "Oranges"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "In the Southern Hemisphere, autumn begins in which month?",
+      "choices": [
+        "March",
+        "September",
+        "December",
+        "June"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Which pigments give some autumn leaves their bright red and purple colors?",
+      "choices": [
+        "Anthocyanins",
+        "Chlorophylls",
+        "Carotenes",
+        "Keratins"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "What is the Japanese tradition of visiting places to view autumn leaves called?",
+      "choices": [
+        "Momijigari",
+        "Hanami",
+        "Origami",
+        "Ikebana"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Before pumpkins, which vegetable was carved into lanterns in Ireland?",
+      "choices": [
+        "Turnip",
+        "Potato",
+        "Beet",
+        "Cabbage"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "true_false",
+      "question": "Leaves change color in autumn partly because trees stop making chlorophyll.",
+      "choices": [
+        "True",
+        "False"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "true_false",
+      "question": "The word \"fall\" for autumn was used in England before it became common in America.",
+      "choices": [
+        "True",
+        "False"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "true_false",
+      "question": "On the equinox, day and night are roughly equal in length.",
+      "choices": [
+        "True",
+        "False"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "true_false",
+      "question": "All trees lose their leaves in autumn.",
+      "choices": [
+        "True",
+        "False"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "type": "true_false",
+      "question": "Many bird species migrate south for the winter in autumn.",
+      "choices": [
+        "True",
+        "False"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "true_false",
+      "question": "Pumpkins are native to Europe.",
+      "choices": [
+        "True",
+        "False"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "type": "true_false",
+      "question": "Acorns grow on oak trees.",
+      "choices": [
+        "True",
+        "False"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "true_false",
+      "question": "In the Southern Hemisphere, October is an autumn month.",
+      "choices": [
+        "True",
+        "False"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "type": "true_false",
+      "question": "Candy corn was invented in the 1880s.",
+      "choices": [
+        "True",
+        "False"
+      ],
+      "correctIndex": 0
+    }
+  ]
+}

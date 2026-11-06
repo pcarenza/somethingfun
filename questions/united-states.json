@@ -1,0 +1,318 @@
+{
+  "topic": "United States",
+  "description": "American geography, history, and symbols",
+  "questions": [
+    {
+      "type": "multiple_choice",
+      "question": "How many states are in the United States?",
+      "choices": [
+        "50",
+        "48",
+        "52",
+        "51"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "What is the capital of the United States?",
+      "choices": [
+        "Washington, D.C.",
+        "New York City",
+        "Philadelphia",
+        "Boston"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Who was the first president of the United States?",
+      "choices": [
+        "George Washington",
+        "John Adams",
+        "Thomas Jefferson",
+        "Benjamin Franklin"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "What is the largest US state by area?",
+      "choices": [
+        "Alaska",
+        "Texas",
+        "California",
+        "Montana"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "What is the smallest US state by area?",
+      "choices": [
+        "Rhode Island",
+        "Delaware",
+        "Connecticut",
+        "New Jersey"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Which was the most recent state admitted to the Union?",
+      "choices": [
+        "Hawaii",
+        "Alaska",
+        "Arizona",
+        "New Mexico"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "In what year was the Declaration of Independence adopted?",
+      "choices": [
+        "1776",
+        "1781",
+        "1789",
+        "1812"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Who was the primary author of the Declaration of Independence?",
+      "choices": [
+        "Thomas Jefferson",
+        "Benjamin Franklin",
+        "John Adams",
+        "James Madison"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "How many stripes are on the US flag?",
+      "choices": [
+        "13",
+        "50",
+        "12",
+        "15"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "What is the US national anthem?",
+      "choices": [
+        "The Star-Spangled Banner",
+        "America the Beautiful",
+        "God Bless America",
+        "My Country, 'Tis of Thee"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Which river forms much of the border between Texas and Mexico?",
+      "choices": [
+        "Rio Grande",
+        "Colorado River",
+        "Red River",
+        "Pecos River"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Mount Rushmore is located in which state?",
+      "choices": [
+        "South Dakota",
+        "North Dakota",
+        "Wyoming",
+        "Montana"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Which state is nicknamed the Sunshine State?",
+      "choices": [
+        "Florida",
+        "California",
+        "Arizona",
+        "Hawaii"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "What is the tallest mountain in the United States?",
+      "choices": [
+        "Denali",
+        "Mount Whitney",
+        "Mount Rainier",
+        "Pikes Peak"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Which city is nicknamed \"the Big Apple\"?",
+      "choices": [
+        "New York City",
+        "Chicago",
+        "Seattle",
+        "Los Angeles"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Which 1803 deal roughly doubled the size of the United States?",
+      "choices": [
+        "Louisiana Purchase",
+        "Gadsden Purchase",
+        "Alaska Purchase",
+        "Oregon Treaty"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Which state has the largest population?",
+      "choices": [
+        "California",
+        "Texas",
+        "Florida",
+        "New York"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "The Statue of Liberty stands in which harbor?",
+      "choices": [
+        "New York Harbor",
+        "Boston Harbor",
+        "Baltimore Harbor",
+        "San Francisco Bay"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Which was the world's first national park, established in 1872?",
+      "choices": [
+        "Yellowstone",
+        "Yosemite",
+        "Grand Canyon",
+        "Zion"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "How many US senators does each state have?",
+      "choices": [
+        "2",
+        "1",
+        "4",
+        "It depends on population"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Which Great Lake lies entirely within the United States?",
+      "choices": [
+        "Lake Michigan",
+        "Lake Superior",
+        "Lake Erie",
+        "Lake Huron"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "true_false",
+      "question": "The Liberty Bell is on display in Philadelphia.",
+      "choices": [
+        "True",
+        "False"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "true_false",
+      "question": "Texas was once an independent republic.",
+      "choices": [
+        "True",
+        "False"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "true_false",
+      "question": "Los Angeles is the capital of California.",
+      "choices": [
+        "True",
+        "False"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "type": "true_false",
+      "question": "The Hawaiian Islands were formed by volcanoes.",
+      "choices": [
+        "True",
+        "False"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "true_false",
+      "question": "The bald eagle is the national bird of the United States.",
+      "choices": [
+        "True",
+        "False"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "true_false",
+      "question": "The US Constitution was signed in Boston.",
+      "choices": [
+        "True",
+        "False"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "type": "true_false",
+      "question": "Abraham Lincoln appears on the US $5 bill.",
+      "choices": [
+        "True",
+        "False"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "true_false",
+      "question": "Arizona, Colorado, New Mexico, and Utah meet at a single point called the Four Corners.",
+      "choices": [
+        "True",
+        "False"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "true_false",
+      "question": "Chicago is the capital of Illinois.",
+      "choices": [
+        "True",
+        "False"
+      ],
+      "correctIndex": 1
+    }
+  ]
+}

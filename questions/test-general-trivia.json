@@ -1,0 +1,318 @@
+{
+  "topic": "Test: General Trivia",
+  "description": "Easy questions for trying out the game",
+  "questions": [
+    {
+      "type": "multiple_choice",
+      "question": "How many days are in a leap year?",
+      "choices": [
+        "366",
+        "365",
+        "364",
+        "360"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "What color is a ripe banana?",
+      "choices": [
+        "Yellow",
+        "Purple",
+        "Blue",
+        "Red"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Which animal is often called the \"king of the jungle\"?",
+      "choices": [
+        "Lion",
+        "Elephant",
+        "Gorilla",
+        "Tiger"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "How many hours are in a day?",
+      "choices": [
+        "24",
+        "12",
+        "36",
+        "48"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "What is the capital of France?",
+      "choices": [
+        "Paris",
+        "Lyon",
+        "Marseille",
+        "Nice"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Which planet do we live on?",
+      "choices": [
+        "Earth",
+        "Mars",
+        "Venus",
+        "Saturn"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "What is frozen water called?",
+      "choices": [
+        "Ice",
+        "Steam",
+        "Fog",
+        "Dew"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "How many wheels does a bicycle have?",
+      "choices": [
+        "2",
+        "3",
+        "4",
+        "1"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "What is the opposite of hot?",
+      "choices": [
+        "Cold",
+        "Warm",
+        "Spicy",
+        "Bright"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Which month comes right after March?",
+      "choices": [
+        "April",
+        "May",
+        "February",
+        "June"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "What do bees make?",
+      "choices": [
+        "Honey",
+        "Milk",
+        "Silk",
+        "Butter"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "How many letters are in the English alphabet?",
+      "choices": [
+        "26",
+        "24",
+        "28",
+        "30"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "What shape has three sides?",
+      "choices": [
+        "Triangle",
+        "Square",
+        "Circle",
+        "Hexagon"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "What color do you get when you mix red and white?",
+      "choices": [
+        "Pink",
+        "Purple",
+        "Orange",
+        "Brown"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Which animal says \"moo\"?",
+      "choices": [
+        "Cow",
+        "Sheep",
+        "Pig",
+        "Duck"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "What is 5 times 5?",
+      "choices": [
+        "25",
+        "10",
+        "20",
+        "55"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Which sense do you use your nose for?",
+      "choices": [
+        "Smell",
+        "Taste",
+        "Hearing",
+        "Touch"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "What is the largest country in the world by area?",
+      "choices": [
+        "Russia",
+        "Canada",
+        "China",
+        "United States"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "An ___ a day keeps the doctor away. Which fruit completes the saying?",
+      "choices": [
+        "Apple",
+        "Orange",
+        "Banana",
+        "Grape"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "How many players does each soccer team have on the field?",
+      "choices": [
+        "11",
+        "9",
+        "7",
+        "15"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "What is H2O more commonly called?",
+      "choices": [
+        "Water",
+        "Salt",
+        "Hydrogen",
+        "Oxygen"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "true_false",
+      "question": "The sun rises in the east.",
+      "choices": [
+        "True",
+        "False"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "true_false",
+      "question": "Fish breathe through gills.",
+      "choices": [
+        "True",
+        "False"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "true_false",
+      "question": "A week has eight days.",
+      "choices": [
+        "True",
+        "False"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "type": "true_false",
+      "question": "Penguins can fly.",
+      "choices": [
+        "True",
+        "False"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "type": "true_false",
+      "question": "Spiders are insects.",
+      "choices": [
+        "True",
+        "False"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "type": "true_false",
+      "question": "Botanically, a tomato is a fruit.",
+      "choices": [
+        "True",
+        "False"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "true_false",
+      "question": "Ice floats because it is less dense than liquid water.",
+      "choices": [
+        "True",
+        "False"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "true_false",
+      "question": "10 is an odd number.",
+      "choices": [
+        "True",
+        "False"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "type": "true_false",
+      "question": "The Moon makes its own light.",
+      "choices": [
+        "True",
+        "False"
+      ],
+      "correctIndex": 1
+    }
+  ]
+}

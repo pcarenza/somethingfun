@@ -1,0 +1,318 @@
+{
+  "topic": "Thanksgiving",
+  "description": "Pilgrims, parades, turkeys, and holiday history",
+  "questions": [
+    {
+      "type": "multiple_choice",
+      "question": "In which month is Thanksgiving celebrated in the United States?",
+      "choices": [
+        "November",
+        "October",
+        "December",
+        "September"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "US Thanksgiving falls on which Thursday of November?",
+      "choices": [
+        "The fourth",
+        "The first",
+        "The second",
+        "The last Thursday, always"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Which president proclaimed a national Thanksgiving Day in 1863?",
+      "choices": [
+        "Abraham Lincoln",
+        "George Washington",
+        "Thomas Jefferson",
+        "Ulysses S. Grant"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Which magazine editor campaigned for years to make Thanksgiving a national holiday?",
+      "choices": [
+        "Sarah Josepha Hale",
+        "Harriet Beecher Stowe",
+        "Louisa May Alcott",
+        "Emily Dickinson"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "What was the name of the ship that carried the Pilgrims to America?",
+      "choices": [
+        "Mayflower",
+        "Santa Maria",
+        "Speedwell",
+        "Endeavour"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "The Pilgrims' 1621 harvest feast was shared with which Native American people?",
+      "choices": [
+        "Wampanoag",
+        "Cherokee",
+        "Iroquois",
+        "Lakota"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Who was the Wampanoag leader present at the 1621 harvest feast?",
+      "choices": [
+        "Massasoit",
+        "Sitting Bull",
+        "Tecumseh",
+        "Geronimo"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Which Patuxet man, who spoke English, helped the Pilgrims plant corn?",
+      "choices": [
+        "Squanto",
+        "Sacagawea",
+        "Hiawatha",
+        "Pontiac"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "What colony did the Pilgrims establish?",
+      "choices": [
+        "Plymouth",
+        "Jamestown",
+        "Boston",
+        "Salem"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "In what year did the Mayflower arrive in New England?",
+      "choices": [
+        "1620",
+        "1492",
+        "1607",
+        "1776"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Which store sponsors the famous Thanksgiving Day Parade in New York City?",
+      "choices": [
+        "Macy's",
+        "Gimbels",
+        "Sears",
+        "Bloomingdale's"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "In what year was the first Macy's Thanksgiving Day Parade held?",
+      "choices": [
+        "1924",
+        "1901",
+        "1946",
+        "1960"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Which president moved Thanksgiving a week earlier in 1939, nicknamed \"Franksgiving\"?",
+      "choices": [
+        "Franklin D. Roosevelt",
+        "Herbert Hoover",
+        "Harry S. Truman",
+        "Calvin Coolidge"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Canada celebrates Thanksgiving on the second Monday of which month?",
+      "choices": [
+        "October",
+        "November",
+        "September",
+        "December"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "What is an adult male turkey commonly called?",
+      "choices": [
+        "Tom",
+        "Hen",
+        "Poult",
+        "Drake"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "What is the fleshy flap that hangs over a turkey's beak called?",
+      "choices": [
+        "Snood",
+        "Comb",
+        "Gizzard",
+        "Crest"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Which NFL team has hosted a Thanksgiving Day game almost every year since 1934?",
+      "choices": [
+        "Detroit Lions",
+        "Green Bay Packers",
+        "Chicago Bears",
+        "New York Giants"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Cranberries are grown and harvested in what?",
+      "choices": [
+        "Bogs",
+        "Orchards",
+        "Vineyards",
+        "Greenhouses only"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Which US state grows the most cranberries?",
+      "choices": [
+        "Wisconsin",
+        "Massachusetts",
+        "New Jersey",
+        "Oregon"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Which US state raises the most turkeys?",
+      "choices": [
+        "Minnesota",
+        "Texas",
+        "Ohio",
+        "California"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Which classic Thanksgiving pie is made from a type of squash?",
+      "choices": [
+        "Pumpkin",
+        "Pecan",
+        "Apple",
+        "Cherry"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "true_false",
+      "question": "Benjamin Franklin once wrote that the turkey was a more respectable bird than the bald eagle.",
+      "choices": [
+        "True",
+        "False"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "true_false",
+      "question": "The US president traditionally \"pardons\" a turkey before Thanksgiving.",
+      "choices": [
+        "True",
+        "False"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "true_false",
+      "question": "Wild turkeys can fly.",
+      "choices": [
+        "True",
+        "False"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "true_false",
+      "question": "Historians know pumpkin pie was served at the Pilgrims' 1621 feast.",
+      "choices": [
+        "True",
+        "False"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "type": "true_false",
+      "question": "Congress set Thanksgiving as the fourth Thursday of November by law in 1941.",
+      "choices": [
+        "True",
+        "False"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "true_false",
+      "question": "Only male turkeys gobble.",
+      "choices": [
+        "True",
+        "False"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "true_false",
+      "question": "The Mayflower reached Cape Cod before the Pilgrims settled at Plymouth.",
+      "choices": [
+        "True",
+        "False"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "true_false",
+      "question": "Scientists agree the tryptophan in turkey is the main cause of after-dinner sleepiness.",
+      "choices": [
+        "True",
+        "False"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "type": "true_false",
+      "question": "The Wampanoag Nation still exists today.",
+      "choices": [
+        "True",
+        "False"
+      ],
+      "correctIndex": 0
+    }
+  ]
+}

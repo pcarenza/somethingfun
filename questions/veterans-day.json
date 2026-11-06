@@ -1,0 +1,318 @@
+{
+  "topic": "Veterans Day",
+  "description": "History, symbols, and traditions of honoring those who served",
+  "questions": [
+    {
+      "type": "multiple_choice",
+      "question": "On what date is Veterans Day observed in the United States?",
+      "choices": [
+        "November 11",
+        "November 1",
+        "November 21",
+        "December 7"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "What was Veterans Day originally called?",
+      "choices": [
+        "Armistice Day",
+        "Memorial Day",
+        "Remembrance Day",
+        "Victory Day"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "The armistice ending World War I fighting took effect at what hour on November 11, 1918?",
+      "choices": [
+        "11 a.m.",
+        "Noon",
+        "9 a.m.",
+        "Midnight"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Armistice Day originally marked the end of fighting in which war?",
+      "choices": [
+        "World War I",
+        "World War II",
+        "The Civil War",
+        "The Korean War"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Which president first proclaimed Armistice Day in 1919?",
+      "choices": [
+        "Woodrow Wilson",
+        "Calvin Coolidge",
+        "Warren G. Harding",
+        "Franklin D. Roosevelt"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "In what year was Armistice Day renamed Veterans Day?",
+      "choices": [
+        "1954",
+        "1945",
+        "1938",
+        "1968"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Which president signed the law renaming Armistice Day as Veterans Day?",
+      "choices": [
+        "Dwight D. Eisenhower",
+        "Harry S. Truman",
+        "John F. Kennedy",
+        "Richard Nixon"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Which city held a 1947 celebration honoring all veterans, inspiring the national holiday?",
+      "choices": [
+        "Birmingham, Alabama",
+        "Atlanta, Georgia",
+        "Richmond, Virginia",
+        "Philadelphia, Pennsylvania"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "The Tomb of the Unknown Soldier is located in which cemetery?",
+      "choices": [
+        "Arlington National Cemetery",
+        "Gettysburg National Cemetery",
+        "Normandy American Cemetery",
+        "Fort Snelling National Cemetery"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "How many steps does a sentinel take as they walk past the Tomb of the Unknown Soldier?",
+      "choices": [
+        "21",
+        "13",
+        "50",
+        "7"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Which flower is a widely worn symbol of remembrance for war veterans?",
+      "choices": [
+        "Red poppy",
+        "White lily",
+        "Red rose",
+        "Daisy"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Which World War I poem helped make the poppy a symbol of remembrance?",
+      "choices": [
+        "In Flanders Fields",
+        "O Captain! My Captain!",
+        "The Charge of the Light Brigade",
+        "Dulce et Decorum Est"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Who wrote the poem \"In Flanders Fields\"?",
+      "choices": [
+        "John McCrae",
+        "Wilfred Owen",
+        "Rupert Brooke",
+        "Siegfried Sassoon"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "In the 1970s, Veterans Day was briefly moved to the fourth Monday of which month?",
+      "choices": [
+        "October",
+        "November",
+        "September",
+        "May"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Starting in what year was Veterans Day returned to November 11?",
+      "choices": [
+        "1978",
+        "1965",
+        "1983",
+        "1990"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Which federal department provides health care and benefits to US veterans?",
+      "choices": [
+        "Department of Veterans Affairs",
+        "Department of Homeland Security",
+        "Department of the Interior",
+        "Department of Labor"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "In the UK and Canada, November 11 is known as what?",
+      "choices": [
+        "Remembrance Day",
+        "Victory Day",
+        "Heroes Day",
+        "Liberty Day"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Which is the oldest branch of the US military?",
+      "choices": [
+        "Army",
+        "Navy",
+        "Marine Corps",
+        "Coast Guard"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "Which military branch celebrates its birthday on November 10, the day before Veterans Day?",
+      "choices": [
+        "Marine Corps",
+        "Navy",
+        "Army",
+        "Air Force"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "What is the highest US military decoration for valor?",
+      "choices": [
+        "Medal of Honor",
+        "Purple Heart",
+        "Silver Star",
+        "Bronze Star"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "multiple_choice",
+      "question": "The Purple Heart is awarded to service members who are what?",
+      "choices": [
+        "Wounded or killed in action",
+        "Promoted to officer",
+        "Serving 20 years",
+        "Top of their training class"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "true_false",
+      "question": "Veterans Day honors everyone who served, while Memorial Day honors those who died in service.",
+      "choices": [
+        "True",
+        "False"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "true_false",
+      "question": "The official spelling of the holiday includes an apostrophe: \"Veteran's Day.\"",
+      "choices": [
+        "True",
+        "False"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "type": "true_false",
+      "question": "When November 11 falls on a Saturday, federal employees usually get the Friday before off.",
+      "choices": [
+        "True",
+        "False"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "true_false",
+      "question": "The Tomb of the Unknown Soldier is guarded 24 hours a day, every day of the year.",
+      "choices": [
+        "True",
+        "False"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "true_false",
+      "question": "Armistice Day became a legal US federal holiday in 1938.",
+      "choices": [
+        "True",
+        "False"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "true_false",
+      "question": "The Vietnam Veterans Memorial wall in Washington, D.C., is made of white marble.",
+      "choices": [
+        "True",
+        "False"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "type": "true_false",
+      "question": "An American teacher named Moina Michael helped popularize the remembrance poppy.",
+      "choices": [
+        "True",
+        "False"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "type": "true_false",
+      "question": "The US Air Force was a separate military branch during World War I.",
+      "choices": [
+        "True",
+        "False"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "type": "true_false",
+      "question": "\"Taps\" is the bugle call traditionally played at US military funerals.",
+      "choices": [
+        "True",
+        "False"
+      ],
+      "correctIndex": 0
+    }
+  ]
+}
