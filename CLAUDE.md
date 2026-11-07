@@ -1,32 +1,48 @@
-# Trivia Party: notes for Claude
+# CLAUDE.md
 
-## Adding question packs
-
-The owner writes question packs by asking Claude in chat (for example, "make a 30-question pack about 80s music") instead of using an API key at runtime. To create one:
-
-1. Write `questions/<kebab-case-topic>.json` in this shape:
-   ```json
-   {
-     "topic": "80s Music",
-     "description": "One-line summary shown as a tooltip",
-     "questions": [
-       { "type": "multiple_choice", "question": "…?", "choices": ["correct", "wrong", "wrong", "wrong"], "correctIndex": 0 },
-       { "type": "true_false", "question": "…", "choices": ["True", "False"], "correctIndex": 1 }
-     ]
-   }
-   ```
-   - `multiple_choice`: exactly 4 distinct choices, 1 correct. The server shuffles the choices, so putting the correct one at index 0 is fine.
-   - `true_false`: choices exactly `["True", "False"]`.
-   - Mix the types: roughly 70% multiple choice and 30% true/false, choosing whichever format suits each fact.
-   - Only include facts you are confident are true. Avoid contested trivia, avoid questions whose answer changes over time, keep questions under 160 characters and choices under 60.
-   - Write more questions than one game needs (25–40), so repeat games draw a different random sample.
-   - `topic` is the name the host taps in the lobby, and it must be unique across packs.
-2. Run `npm run validate-packs` and fix any problems it reports.
-3. Commit and push. **Don't print the questions or answers in chat**: the host plays too and wants to be surprised.
-
-Hosts can also create packs from the lobby with their own Claude or Gemini key (`createPack` socket event → `generateQuestions` in `src/questionGen.js` → `savePack` in `src/packs.js`). Never store or log those keys.
-
-## Dev
-
-- `npm start` starts the server (port 3000). `npm test` runs the unit tests and validates the packs.
-- Question sources, in order: a pack whose topic matches what the host typed (case-insensitive), then Claude (only when `ANTHROPIC_API_KEY` is set), then the general bank in `src/fallbackBank.js`.
+- **Commands** (Node >= 18, ESM, no build step)
+  - Install: `npm ci --silent --no-audit --no-fund`
+  - Test all: `node --test --test-reporter=dot && npm run --silent validate-packs | grep -v '^✓'`
+  - Single test: `node --test --test-reporter=dot --test-name-pattern="<name>"`
+  - Validate packs only: `npm run --silent validate-packs | grep -v '^✓'` (exit 1 on any bad pack)
+  - Run: `npm start` (port 3000; `PORT=3123 npm start` to override)
+  - Watch: `npm run dev`
+- **Directory map**
+  - `src/` — server.js (Express + Socket.IO, PINs, events), game.js (Room state machine, scoring), questionGen.js (Claude/Gemini generation), packs.js (pack load/validate/save), fallbackBank.js
+  - `public/` — single-page vanilla JS client: index.html, app.js, style.css
+  - `questions/` — question packs, one JSON file per topic
+  - `test/` — node:test unit tests (game, packs, pack maker)
+  - `scripts/` — validate-packs.js
+- **Game flow**
+  - Phases: `setup → ready → question → reveal → leaderboard → final → setup`
+  - Server is authoritative; client renders the `state` snapshot sent per player
+  - `correctIndex` must never reach clients before the `reveal` phase
+  - Score: correct = 500–1000 by speed (`scoreAnswer` in game.js); wrong/no answer = 0
+  - State is in memory only; restarting the server ends all games
+- **Question sources** (in order, `buildCategory` in questionGen.js)
+  - Pack whose `topic` matches case-insensitively
+  - Claude live generation, only when `ANTHROPIC_API_KEY` is set
+  - `src/fallbackBank.js` general bank
+- **Writing a pack** (`questions/<kebab-case-topic>.json`)
+  - Shape: `{ "topic", "description", "questions": [{ "type", "question", "choices", "correctIndex" }] }`
+  - `multiple_choice`: exactly 4 distinct choices; correct at index 0 is fine (server shuffles)
+  - `true_false`: choices exactly `["True", "False"]`
+  - ~70% multiple choice / ~30% true/false; 25–40 questions per pack
+  - `topic` must be unique across packs
+  - Only confident, non-contested facts; nothing that changes over time
+  - Questions < 160 chars, choices < 60 chars
+  - Run validate-packs, then commit and push
+  - Never print questions or answers in chat (the owner plays as host)
+- **Lobby pack maker**
+  - Flow: `createPack` socket event → `generateQuestions` (questionGen.js) → `savePack` (packs.js)
+  - Host supplies a Claude or Gemini key per request; never store or log keys
+  - Gemini calls use the `x-goog-api-key` header, never a URL param
+  - `savePack` merges into an existing topic and skips duplicate questions
+- **Env vars**
+  - `PORT`, `ANTHROPIC_API_KEY`, `TRIVIA_MODEL` (default `claude-opus-5-5`)
+  - `GEMINI_MODEL` (default `gemini-2.5-flash`), `PACKS_DIR` (default `questions/`)
+  - `ANTHROPIC_BASE_URL`, `GEMINI_BASE_URL`: point at mock servers in tests
+- **Gotchas**
+  - Anthropic SDK 1.x sends `apiKey` as `Authorization: Bearer`; mocks must accept it
+  - Hosted disks (e.g. Render) may wipe packs created in the lobby; commit them to `questions/`
+  - Same-browser tabs share one player id (localStorage); use incognito to test a second player
